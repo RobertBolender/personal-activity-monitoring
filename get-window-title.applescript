@@ -2,6 +2,7 @@ global frontApp, frontAppName, windowTitle
 
 set windowTitle to ""
 set frontAppName to ""
+
 tell application "System Events"
     try
         set frontApp to first application process whose frontmost is true
@@ -11,10 +12,8 @@ tell application "System Events"
 			set frontAppName to name of frontApp
 		end if
     on error
-        set frontAppName to "-"
+        return "<no active window>"
     end try
-
-	# log (get properties of frontApp)
 
     try
         tell process frontAppName
@@ -29,7 +28,7 @@ tell application "System Events"
             end tell
         end tell
     on error
-        set windowTitle to "-"
+        return "<no active window>"
     end try
 end tell
 
