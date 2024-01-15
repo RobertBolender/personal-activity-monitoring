@@ -12,7 +12,8 @@ It is intended to be used with a cron job to track activity over time.
 
 Tested on macOS 14.2.1
 
-Note that this script does not currently have any log rotation, so the log file will grow indefinitely.
+Logs are written to the `log/` directory in the same directory as the script, one file per day.
+Note that the script will not ever delete old logs, so you will need to do that manually if you want to.
 
 ## Suggested Usage
 
